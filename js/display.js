@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 function displayValue(value) {
   if (typeof value === 'undefined' || value === null) return value;
   if (typeof value === 'object' ||
@@ -19,6 +20,6 @@ function renderFeatures(features) {
     return '<div class="mbview_feature">' + renderProperties(ft) + '</div>';
   }).join('');
 }
-function renderPopup(features) {
+export function renderPopup(features) {
   return '<div class="mbview_popup">' + renderFeatures(features) + '</div>';
 }

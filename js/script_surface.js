@@ -1,9 +1,7 @@
-var API_HOST="http://localhost:5000";
-var TILE_HOST="http://localhost:8001";
-var name="person";
-
-var ALL=false;
-mapboxgl.accessToken = 'MAPBOX API KEY';
+/*jshint esversion: 6 */
+import {MAPBOX_ACCESS_TOKEN} from './config.js';
+import * as dat from './lib/dat.gui.module.js'
+mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 var center = [15.611572,46.566414,14];
 center = [center[0], center[1]];
 

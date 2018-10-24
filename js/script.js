@@ -1,9 +1,10 @@
-var API_HOST="http://localhost:5000";
-var TILE_HOST="http://localhost:8001";
-var name="person";
-
-var ALL=false;
-mapboxgl.accessToken = 'MAPBOX API KEY';
+/*jshint esversion: 6 */
+import {MAPBOX_ACCESS_TOKEN, BICYCLE_TYPES} from './config.js';
+import * as dat from './lib/dat.gui.module.js'
+/*import {renderPopup} from './display.js'*/
+/*import * as mapboxgl from './lib/node_modules/mapbox-gl/dist/mapbox-gl.js';*/
+/*import mapboxgl from 'mapbox-gl';*/
+mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 var center = [15.611572,46.566414,14];
 center = [center[0], center[1]];
 
@@ -17,7 +18,6 @@ var map = new mapboxgl.Map({
 });
 var layerIDs = []; // Will contain a list used to filter against.
 
-var bicycle_types = ["", "Lezecko", "Gorsko", "Cestno", "Kolo"];
 
 var GuiConfig = function() {
     this.person = 'Marko';
@@ -32,7 +32,7 @@ var GuiConfig = function() {
 var guiConfig = new GuiConfig();
 var gui = new dat.GUI();
 gui.remember(guiConfig);
-var bicycle_controller=gui.add(guiConfig, 'bicycle', bicycle_types);
+var bicycle_controller=gui.add(guiConfig, 'bicycle', BICYCLE_TYPES);
 var max_distance_controller=gui.add(guiConfig, 'max_distance', 0, 150);
 var min_distance_controller=gui.add(guiConfig, 'min_distance', 0, 150);
 
